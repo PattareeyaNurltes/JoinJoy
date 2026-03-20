@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../AdminUI/adminui.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="AdminAPI/AdminAPI.csproj" />
+</Solution>

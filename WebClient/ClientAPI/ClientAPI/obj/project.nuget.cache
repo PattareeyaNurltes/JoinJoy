@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "z9oiHwxXsd8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Personal\\OneDrive\\Desktop\\Projects\\2026\\JoinJoy\\JoinJoy\\WebClient\\ClientAPI\\ClientAPI\\ClientAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Personal\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\Personal\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\Personal\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}
