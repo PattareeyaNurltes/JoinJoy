@@ -15,7 +15,7 @@ namespace ClientAPI.Data
 
             optionsBuilder.UseNpgsql(connectionString);
 
-            return new JoinJoyDbContext(optionsBuilder.Options);
+            return new JoinJoyDbContext(optionsBuilder.Options); 
         }
     }
 }
