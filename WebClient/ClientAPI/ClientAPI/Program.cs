@@ -1,11 +1,15 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
+//Swagger
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// Add services to the container.
 //DB
 var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 builder.Services.AddDbContext<JoinJoyDbContext>(options =>
@@ -60,8 +64,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     }));
 
-//Controller
-builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Configure the HTTP request pipeline.
@@ -71,6 +73,15 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+//Swagger
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "JoinJoy API V1");
+    c.RoutePrefix = string.Empty;
+});
+
+
 app.UseHttpsRedirection();
 
 //middleware
@@ -78,5 +89,16 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var url = "http://localhost:5178/";
+try
+{
+    await Task.Run(() =>
+    {
+       Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
+    });
+}
+catch { /*do nothing*/}
+
 
 app.Run();
